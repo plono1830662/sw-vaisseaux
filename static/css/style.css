@@ -4,12 +4,22 @@ body {
 
 h1 {
   margin-bottom: 40px;
+  color: #f5d142;
 }
 
 h2 {
   margin: 10px;
+  color: #f5d142;
 }
-
+table{
+  color:#f5d142;
+}
+th{
+  color:#f5d142;
+}
+tr{
+  color:#f5d142;
+}
 button {
   margin-bottom: 20px;
 }

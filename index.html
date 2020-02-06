@@ -9,12 +9,16 @@
   <body style="background-image:url(image/1426475.jpg) ">
 
 
-
   <!-- page content -->
 	<h1 class="row justify-content-center">Générateur de vaisseaux Star Wars</h1>
 	<div class="row justify-content-center">
-		<button type="button" class="btn btn-outline-warning">Générer un nouveau vaisseau</button>
+		<button id="Btn" type="button" class="btn btn-outline-warning">Générer un nouveau vaisseau</button>
 	</div>
+	  </div>
+	  <div role="alert" id="alert" >
+	  </div>
+	  <div class="row justify-content-center" id="contSpinner">
+	  </div>
 	<!-- Exemple avec le vaisseau #10 -->
 	<!-- https://swapi.co/api/starships/10/ -->
 	<div class="container">
@@ -22,100 +26,59 @@
 				<table class="table">
 					<tr>
 						<th scope="col">Nom</td>
-						<td scope="row">Millenium Falcon</td>
+						<td scope="row" id="nomShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Modèle</td>
-						<td scope="row">YT-1300 light freighter</td>
+						<td scope="row" id="modShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Classe</td>
-						<td scope="row">Light freighter</td>
+						<td scope="row" id="classShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Fabricant</td>
-						<td scope="row">Corellian Engineering Corporation</td>
+						<td scope="row" id="fabShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Coût (en crédits)</td>
-						<td scope="row">100000</td>
+						<td scope="row" id="coutShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Taille (en mètres)</td>
-						<td scope="row">34.37</td>
+						<td scope="row" id="tailleShip"></td>
 					</tr>
 					<tr>
 						<th scope="col">Nombre de membres de l'équipage</td>
-						<td scope="row">4</td>
+						<td scope="row" id="nbMem"></td>
 					</tr>
 					<tr>
 						<th scope="col">Nombre de passagers</td>
-						<td scope="row">6</td>
+						<td scope="row" id="nbPass"></td>
 					</tr>
 					<tr>
 						<th scope="col">Capacité de chargement maximale (en kg)</td>
-						<td scope="row">100000</td>
+						<td scope="row" id="capShip"></td>
 					</tr>
 				</table>
 
 
 			<h2 class="row justify-content-center">Pilotes</h2>
-				<table class="table">
-					<tr>
-						<th scope="col">Nom</th>
-						<th scope="col">Genre</th>
-					</tr>
-					<tr>
-						<td scope="row">Chewbacca</td>
-						<td>male</td>
-					</tr>
-					<tr>
-						<td scope="row">Han Solo</td>
-						<td scope="row">male</td>
-					</tr>
-					<tr>
-						<td scope="row">Lando Calrissian</td>
-						<td scope="row">male</td>
-					</tr>
-					<tr>
-						<td scope="row">Nien Nunb</td>
-						<td scope="row">male</td>
-					</tr>
+				<table class="table" id="tblPilote">
+
 				</table>
 
 				<h2 class="row justify-content-center">Films</h2>
-				<table class="table">
-					<tr>
-						<th scope="col">Titre</th>
-						<th scope="col">Directeur</th>
-						<th scope="col">Date de sortie</th>
-					</tr>
-					<tr>
-						<td scope="row">The Empire Strikes Back</td>
-						<td scope="row">Irvin Kershner</td>
-						<td scope="row">1980-05-17</td>
-					</tr>
-					<tr>
-						<td scope="row">The Force Awaken</td>
-						<td scope="row">J. J. Abrams</td>
-						<td scope="row">2015-12-11</td>
-					</tr>
-					<tr>
-						<td scope="row">Return of the Jedi</td>
-						<td scope="row">Richard Marquand</td>
-						<td scope="row">1983-05-25</td>
-					</tr>
-					<tr>
-						<td scope="row">A New Hope</td>
-						<td scope="row">George Lucas</td>
-						<td scope="row">1977-05-25</td>
-					</tr>
+				<table class="table" id="tblFilm">
+
 				</table>
 
 	</div>
 
 
 	<!-- scripts -->
+  	<script src="node_modules/jquery/dist/jquery.js"></script>
 	<script src="static/js/script.js"></script>
+
   </body>
 </html>

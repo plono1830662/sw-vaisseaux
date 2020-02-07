@@ -22,6 +22,7 @@ $("#Btn").click(function(){
         $("#alert").show();
 
     }
+
     $("#contSpinner").removeClass("spinner-border text-warning");
 });
 

@@ -7,14 +7,17 @@ $("#Btn").click(function(){
     $("#contSpinner").addClass("spinner-border text-warning");
 
     try{
+        rnd=random();
         rndPage =Math.floor(Math.random() * 4)+1;
-        $.get("https://swapi.co/api/starships/?page="+rndPage,result);
+        $.get("https://swapi.co/api/starships/?page="+rndPage,loadShip);
         document.getElementById('alert').className="alert alert-warning";
+
         $("#alert").text("Votre vaisseau à été trouvé!");
         $("#alert").show();
     }
     catch (e) {
         document.getElementById('alert').className="alert alert-danger";
+
         $("#alert").text("Une ERREUR est survenue lors de la recherche du vaisseau!");
         $("#alert").show();
 
@@ -23,9 +26,9 @@ $("#Btn").click(function(){
 });
 
 
-function result(donnee,status) {
-    rnd=random();
-    $("#Btn").attr("disabled",true);
+function loadShip(donnee,status) {
+    $("#Btn").prop("disabled",true);
+
     $("#nomShip").text(donnee.results[rnd].name);
     $("#modShip").text(donnee.results[rnd].model);
     $("#classShip").text(donnee.results[rnd].starship_class);
@@ -36,25 +39,47 @@ function result(donnee,status) {
     $("#nbPass").text(donnee.results[rnd].passengers);
     $("#capShip").text(donnee.results[rnd].cargo_capacity);
 
+    clearPilote();
+    clearFilm();
+
+    gererPilote(donnee);
+    gererFilm(donnee);
+
+
+    $('#Btn').prop("disabled", false);
+};
+
+
+function clearPilote() {
     var Parent = document.getElementById("tblPilote");
     while(Parent.hasChildNodes())
     {
         Parent.removeChild(Parent.firstChild);
     }
-    $("#tblPilote").append("<tr><th>nom</th><th>sexe</th></tr>");
-    donnee.results[rnd].pilots.forEach(function(item,index){
-        $.get(item,loadPilote)
-    });
+};
+
+
+function clearFilm() {
     var Parent = document.getElementById("tblFilm");
     while(Parent.hasChildNodes())
     {
         Parent.removeChild(Parent.firstChild);
     }
+};
+
+function gererPilote(donnee){
+    $("#tblPilote").append("<tr><th>nom</th><th>sexe</th></tr>");
+    donnee.results[rnd].pilots.forEach(function(item,index){
+        $.get(item,loadPilote)
+    });
+};
+
+
+function gererFilm(donnee){
     $("#tblFilm").append("<tr><th>titre</th><th>directeur</th><th>date de sortie</th></tr>");
     donnee.results[rnd].films.forEach(function(item,index){
         $.get(item,loadFilms)
     });
-    $('#Btn').attr("disabled", false);
 };
 
 
